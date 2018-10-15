@@ -1,0 +1,91 @@
+@import 'assets/styles/colors.css';
+
+.input {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+
+  .title {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  label {
+    display: block;
+    color: var(--brand-text-light);
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .input-el {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .input-box {
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+
+    .input-el {
+      width: 100%;
+      height: 44px;
+      padding: 0 10px;
+      border: solid 1px var(--brand-grey-dark);
+      border-radius: 4px;
+      background-color: #fff;
+      font-size: 14px;
+      line-height: 14px;
+
+      /* &::placeholder {
+        color: color(#fff alpha(-60%));
+      } */
+    }
+
+    .postfix {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      margin-left: 5px;
+      padding: 0 10px;
+      border-radius: 18px;
+      background-color: var(--brand-grey-medium);
+    }
+  }
+
+  &.large {
+    .input-el {
+      height: 42px;
+    }
+  }
+
+  &.medium {
+    .input-box {
+      border-color: #cecece;
+
+      .input-el {
+        height: 32px;
+      }
+    }
+  }
+
+  &.disabled {
+    .input-box {
+      .input-el {
+        background-color: rgba(40, 46, 61, 0.05);
+      }
+    }
+  }
+
+  &.has-postfix {
+    .input-box {
+      .input-el {
+        text-align: right;
+      }
+    }
+  }
+}

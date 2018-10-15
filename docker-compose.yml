@@ -1,0 +1,20 @@
+version: "3"
+services:
+  server:
+    build:
+      context: ./server
+    image: boilerplate-server
+    container_name: boilerplate-server
+    working_dir: /app
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:10.4
+    container_name: boilerplate-db
+    environment:
+      - POSTGRES_USER=boilerplate-user
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=boilerplate-user
+    volumes:
+      - ./docker-data/postgres/data:/var/lib/postgresql/data

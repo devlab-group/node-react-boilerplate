@@ -1,0 +1,9 @@
+version: "3"
+services:
+  server:
+    build:
+      dockerfile: ./docker/dev/Dockerfile
+    ports:
+      - 127.0.0.1:8080:8080
+    volumes:
+      - ./server/:/app

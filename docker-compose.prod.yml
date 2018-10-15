@@ -1,0 +1,31 @@
+version: "3"
+services:
+  nginx:
+    build:
+      context: docker/nginx
+    image: boilerplate-nginx
+    container_name: boilerplate-nginx
+    restart: always
+    depends_on:
+      - server
+      - client
+    ports:
+      - 80:80
+
+  server:
+    build:
+      dockerfile: ./docker/prod/Dockerfile
+    restart: always
+    expose:
+      - 8080
+
+  client:
+    build:
+      context: ./client
+      dockerfile: ./docker/prod/Dockerfile
+    image: boilerplate-client
+    container_name: boilerplate-client
+    working_dir: /app
+    restart: always
+    expose:
+      - 3000
